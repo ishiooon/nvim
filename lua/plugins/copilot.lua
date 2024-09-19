@@ -1,4 +1,5 @@
 return {
+{
   "monkoose/neocodeium",
   event = "VeryLazy",
   config = function()
@@ -15,4 +16,16 @@ return {
       neocodeium.cycle(-1)
     end)
   end,
+}
+  -- {
+  --   "Exafunction/codeium.nvim",
+  --   dependencies = {
+  --       "nvim-lua/plenary.nvim",
+  --       "hrsh7th/nvim-cmp",
+  --   },
+  --   config = function()
+  --       require("codeium").setup({
+  --       })
+  --   end
+  -- },
 }
