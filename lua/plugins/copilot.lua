@@ -17,6 +17,10 @@ return {
     end)
   end,
 }
+-- {
+--   'Exafunction/codeium.vim',
+--   event = 'BufEnter'
+-- }
   -- {
   --   "Exafunction/codeium.nvim",
   --   dependencies = {
