@@ -1,3 +1,5 @@
+-- neocodeiumをインストール
+--  aiを用いたコード補完 
 return {
 {
   "monkoose/neocodeium",
@@ -17,19 +19,5 @@ return {
     end)
   end,
 }
--- {
---   'Exafunction/codeium.vim',
---   event = 'BufEnter'
--- }
-  -- {
-  --   "Exafunction/codeium.nvim",
-  --   dependencies = {
-  --       "nvim-lua/plenary.nvim",
-  --       "hrsh7th/nvim-cmp",
-  --   },
-  --   config = function()
-  --       require("codeium").setup({
-  --       })
-  --   end
-  -- },
 }
+
