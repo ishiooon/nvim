@@ -32,5 +32,16 @@ end, {remap=true})
 
 -- barbar用のキーマップ
 local opts = { noremap = true, silent = true }
-vim.keymap.set('n', '<C-j>', '<Cmd>BufferPrevious<CR>', opts)--Ctrl+jで前のBufferに移動
-vim.keymap.set('n', '<C-k>', '<Cmd>BufferNext<CR>', opts)--Ctrl+kで次のBufferに移動
+vim.keymap.set('n', '<leader>j', '<Cmd>BufferPrevious<CR>', opts)--Ctrl+jで前のBufferに移動
+vim.keymap.set('n', '<leader>k', '<Cmd>BufferNext<CR>', opts)--Ctrl+kで次のBufferに移動
+
+-- lsp用のキーマップ
+-- ホバー
+vim.keymap.set("n", "K",  "<cmd>Lspsaga hover_doc<CR>")
+-- 参照
+vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
+-- 補完
+vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
+-- 補完
+vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
+

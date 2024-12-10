@@ -1,28 +1,21 @@
 vim.opt.number = true
-vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+vim.lsp.set_log_level("debug")
 
+-- lsp設定
+local mason = require('mason')
+local lspconfig = require('lspconfig')
+local mason_lspconfig = require('mason-lspconfig')
 
+mason.setup()
+mason_lspconfig.setup()
+mason_lspconfig.setup_handlers({
+    	function(server_name)
+        	lspconfig[server_name].setup({})
+    	end,
+    	intelephense_analyzer = function()  -- 個別に設定することもできる
+		require('lspconfig.intelephense').setup({
+root_dir = lspconfig.util.root_pattern("composer.json", ".git","*.php")	
+		})
+    	end,
 
--- LSPサーバアタッチ時の処理
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(ctx)
-    local set = vim.keymap.set
-    set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { buffer = true })
-    set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { buffer = true })
-    set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { buffer = true })
-    set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { buffer = true })
-    set("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { buffer = true })
-    set("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", { buffer = true })
-    set("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", { buffer = true })
-    set("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", { buffer = true })
-    set("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", { buffer = true })
-    set("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { buffer = true })
-    set("n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { buffer = true })
-    set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { buffer = true })
-    set("n", "<space>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", { buffer = true })
-    set("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", { buffer = true })
-    set("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", { buffer = true })
-    set("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", { buffer = true })
-    set("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", { buffer = true })
-  end,
 })
