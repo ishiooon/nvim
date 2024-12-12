@@ -1,6 +1,6 @@
 local lsp_servers = {
     "lua_ls",
-    "phpactor",
+    "intelephense",
 }
 
 return{
