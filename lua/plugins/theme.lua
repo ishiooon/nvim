@@ -8,6 +8,8 @@ return {
       -- load the colorscheme here
       vim.cmd([[colorscheme iceberg]])
     end,
+	opts = {
+	}
   },
 }
 

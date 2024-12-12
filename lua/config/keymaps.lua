@@ -6,6 +6,7 @@ vim.keymap.set('', '<C-b>', '<Cmd>Neotree toggle<CR>')
 
 -- telescope用のキーマップ
 local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<space>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
 -- ファイル検索
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 -- テキスト検索
@@ -38,10 +39,7 @@ vim.keymap.set('n', '<leader>k', '<Cmd>BufferNext<CR>', opts)--Ctrl+kで次のBu
 -- lsp用のキーマップ
 -- ホバー
 vim.keymap.set("n", "K",  "<cmd>Lspsaga hover_doc<CR>")
--- 参照
-vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
--- 補完
-vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
--- 補完
-vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
-
+vim.keymap.set("n", "ge", "<cmd>Lspsaga show_line_diagnostics<CR>")
+vim.keymap.set("n", "ga", "<cmd>Lspsaga code_action<CR>")
+vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>")
+vim.keymap.set('n', 'gr', '<cmd>Lspsaga lsp_finder<CR>')
