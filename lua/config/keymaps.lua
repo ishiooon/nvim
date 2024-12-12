@@ -43,3 +43,7 @@ vim.keymap.set("n", "ge", "<cmd>Lspsaga show_line_diagnostics<CR>")
 vim.keymap.set("n", "ga", "<cmd>Lspsaga code_action<CR>")
 vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>")
 vim.keymap.set('n', 'gr', '<cmd>Lspsaga lsp_finder<CR>')
+
+-- toggleTerm用のキーマップ
+-- open/close
+vim.keymap.set('', '<C-t>', '<Cmd>ToggleTerm<CR>')
