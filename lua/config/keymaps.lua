@@ -18,10 +18,10 @@ vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 local hop = require('hop')
 local directions = require('hop.hint').HintDirection
 vim.keymap.set('', 'f', function()
-  hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false })
+    hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false })
 end, {remap=true})
 vim.keymap.set('', 'F', function()
-  hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = false })
+		hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = false })
 end, {remap=true})
 vim.keymap.set('', 't', function()
   hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false, hint_offset = -1 })
@@ -47,16 +47,13 @@ vim.keymap.set('n', 'gr', '<cmd>Lspsaga lsp_finder<CR>')
 -- toggleTerm用のキーマップ
 -- open/close
 vim.keymap.set('', '<C-t>', '<Cmd>ToggleTerm<CR>')
-
 local Terminal  = require('toggleterm.terminal').Terminal
 local lazygit = Terminal:new({
 	cmd = "lazygit",
 	hidden = true,
 	dir="%:p:h",
 })
-
 function _lazygit_toggle()
   lazygit:toggle()
 end
-
 vim.api.nvim_set_keymap("n", "<leader>lg", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
