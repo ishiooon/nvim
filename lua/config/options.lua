@@ -43,7 +43,7 @@ dap.adapters.php = {
     args = { os.getenv('HOME') .. '/vscode-php-debug/out/phpDebug.js' }
 }
 -- .vscode/launch.jsonの設定
-require("dap.ext.vscode").load_launchjs(nil, { lldb = { "c", "cpp", "" } })
+-- require("dap.ext.vscode").load_launchjs(nil, { lldb = { "c", "cpp", "" } })
 
 dap.set_log_level('TRACE')
 -- ブレークポイントの設定
@@ -60,7 +60,7 @@ vim.keymap.set('n', '<F12>', function() dap.step_out() end, { desc = "Step Out" 
 -- デバッグUI
 local dapui = require('dapui')
 vim.keymap.set('n', '<Leader>du', function() dapui.toggle() end, { desc = "Toggle Debug UI" })
-vim.keymap.set('n', '<Leader>dr', function() dap.repl.open() end, { desc = "Open Debug REPL" })
+-- vim.keymap.set('n', '<Leader>dr', function() dap.repl.open() end, { desc = "Open Debug REPL" })
 
 -- 最後のデバッグセッションを再実行
 vim.keymap.set('n', '<Leader>dl', function() dap.run_last() end, { desc = "Run Last Debug Session" })

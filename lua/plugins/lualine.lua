@@ -28,7 +28,21 @@ return{
 			  sections = {
 			    lualine_a = {'mode'},
 			    lualine_b = {'branch', 'diff', 'diagnostics'},
-			    lualine_c = {'filename'},
+                lualine_c = {'filename',
+                    {
+                        function()
+                            return require("dap").status()
+                        end,
+                        icon = { "", color = { fg = "#e7c664" } }, -- nerd icon.
+                        cond = function()
+                          if not package.loaded.dap then
+                            return false
+                          end
+                          local session = require("dap").session()
+                          return session ~= nil
+                        end,
+                      },
+                },
 			    lualine_x = {'encoding', 'fileformat', 'filetype'},
 			    lualine_y = {'progress'},
 			    lualine_z = {'lsp_progress', 'location'}
