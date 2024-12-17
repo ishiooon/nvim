@@ -1,23 +1,34 @@
 -- neocodeiumをインストール
 --  aiを用いたコード補完 
 return {
-{
-  "monkoose/neocodeium",
-  event = "VeryLazy",
-  config = function()
-    local neocodeium = require("neocodeium")
-    neocodeium.setup()
-    -- 公式の例だと<A-f>にマッピングされていますが、<Tab>に変えてます。
-    vim.keymap.set("i", "<space>c", neocodeium.accept)
-    -- 複数候補ある場合に次の候補を表示
-    vim.keymap.set("i", "<C-j>", function()
-      neocodeium.cycle(1)
-    end)
-    -- 前の候補を表示
-    vim.keymap.set("i", "<C-k>", function()
-      neocodeium.cycle(-1)
-    end)
-  end,
-}
+    {
+        "monkoose/neocodeium",
+        event = "VeryLazy",
+        config = function()
+            local neocodeium = require("neocodeium")
+            neocodeium.setup()
+            -- 公式の例だと<A-f>にマッピングされていますが、<Tab>に変えてます。
+            vim.keymap.set("i", "<space>c", neocodeium.accept)
+            -- 複数候補ある場合に次の候補を表示
+            vim.keymap.set("i", "<C-j>", function()
+              neocodeium.cycle(1)
+            end)
+            -- 前の候補を表示
+            vim.keymap.set("i", "<C-k>", function()
+              neocodeium.cycle(-1)
+            end)
+        end,
+    },
+    {
+        "frankroeder/parrot.nvim",
+        dependencies = { "ibhagwan/fzf-lua", "nvim-lua/plenary.nvim" },
+        opts = {
+            providers = {
+                groq = {
+                    api_key = "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",
+                }
+            },
+        }
+    }
 }
 
