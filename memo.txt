@@ -1,0 +1,27 @@
+〇linux 
+
+--本体のインストール
+sha256sum -c nvim-linux64.tar.gz.sha256sum
+tar xvzf nvim-linux64.tar.gz -C /usr/share/
+cd /usr/share/
+ln -sf /usr/share/nvim-linux64/bin/nvim nvim
+
+--上記では動かなかったため、linuxでビルドした
+git clone https://github.com/neovim/neovim
+cd neovim
+git checkout stable
+make CMAKE_BUILD_TYPE=Release
+./build/bin/nvim --version | grep ^Build
+make CMAKE_INSTALL_PREFIX=$HOME/local/nvim install
+./build/bin/nvim --version | grep ^Build
+ln -s ~/.local/share/neovim/build/bin/nvim /usr/local/bin/nvim
+
+-- telescopeでのgrep用
+sudo dnf install ripgrep -y
+
+-- php-debug用dap
+git clone https://github.com/xdebug/vscode-php-debug.git
+
+
+--lazy git install
+
