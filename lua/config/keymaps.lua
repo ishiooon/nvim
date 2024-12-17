@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 
 -- neotree用のキーマップ
 --open/close
-vim.keymap.set('', '<C-b>', '<Cmd>Neotree toggle<CR>')
+vim.keymap.set('n', '<C-e>', '<Cmd>Neotree reveal toggle<CR>')
 
 -- telescope用のキーマップ
 local builtin = require("telescope.builtin")

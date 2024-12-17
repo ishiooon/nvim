@@ -59,7 +59,7 @@ vim.keymap.set('n', '<F12>', function() dap.step_out() end, { desc = "Step Out" 
 
 -- デバッグUI
 local dapui = require('dapui')
-vim.keymap.set('n', '<Leader>du', function() dapui.toggle() end, { desc = "Toggle Debug UI" })
+vim.keymap.set('n', '<Leader>d', function() dapui.toggle() end, { desc = "Toggle Debug UI" })
 -- vim.keymap.set('n', '<Leader>dr', function() dap.repl.open() end, { desc = "Open Debug REPL" })
 
 -- 最後のデバッグセッションを再実行
