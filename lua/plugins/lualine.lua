@@ -3,7 +3,7 @@ return{
 		'nvim-lualine/lualine.nvim',
 	    	dependencies = {
 	      		'nvim-tree/nvim-web-devicons',
-			'arkav/lualine-lsp-progress'
+			    'arkav/lualine-lsp-progress',
 	    	},
 		opts = {
 
@@ -45,7 +45,13 @@ return{
                 },
 			    lualine_x = {'encoding', 'fileformat', 'filetype'},
 			    lualine_y = {'progress'},
-			    lualine_z = {'lsp_progress', 'location'}
+                -- 時計アイコンと時分を表示
+                lualine_z = {
+                    'location',
+                    function()
+                        return " " .. os.date("%H:%M")
+                    end,
+                },
 			  },
 			  inactive_sections = {
 			    lualine_a = {},

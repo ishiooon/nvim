@@ -22,6 +22,5 @@ sudo dnf install ripgrep -y
 -- php-debug用dap
 git clone https://github.com/xdebug/vscode-php-debug.git
 
-
---lazy git install
+--lazy gitのinstall
 
