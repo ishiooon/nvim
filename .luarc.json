@@ -2,7 +2,9 @@
   "diagnostics": {
     // 明示的に定義されていない vim モジュールをよしとする場合
     "globals": ["vim",
-            "toggleLazygitTerminal"]
+            "toggleLazygitTerminal",
+            "_w3m_toggle",
+            "_lazygit_toggle"]
     // 細かい助言がいらない場合
     // "hint.enable": false
   }
