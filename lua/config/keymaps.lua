@@ -85,3 +85,7 @@ function _perplexity_toggle()
     perplexity:toggle()
 end
 vim.api.nvim_set_keymap("n", "<leader>pp", "<cmd>lua _perplexity_toggle()<CR>", {noremap = true, silent = true})
+
+-- Suda.vim 用の キーマップ
+vim.keymap.set('n', '<Leader>sr', ':SudaRead<CR>')
+vim.keymap.set('n', '<Leader>sw', ':SudaWrite<CR>')
