@@ -75,3 +75,13 @@ function _w3m_toggle()
     w3m:toggle()
 end
 vim.api.nvim_set_keymap("n", "<leader>ww", "<cmd>lua _w3m_toggle()<CR>", {noremap = true, silent = true})
+
+local perplexity = Terminal:new({
+    cmd = "w3m perplexity.ai",
+    hidden = true,
+    dir="%:p:h",
+})
+function _perplexity_toggle()
+    perplexity:toggle()
+end
+vim.api.nvim_set_keymap("n", "<leader>pp", "<cmd>lua _perplexity_toggle()<CR>", {noremap = true, silent = true})
