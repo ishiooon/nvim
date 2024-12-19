@@ -11,6 +11,8 @@ vim.keymap.set("n", "<space>fb", ":Telescope file_browser path=%:p:h select_buff
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 -- テキスト検索
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+-- freequency検索
+vim.keymap.set("n", "<leader>fe", ':Telescope frecency<CR>', {})
 
 -- hop用のキーマップ
 -- place this in one of your configuration file(s)
@@ -76,16 +78,14 @@ function _w3m_toggle()
 end
 vim.api.nvim_set_keymap("n", "<leader>ww", "<cmd>lua _w3m_toggle()<CR>", {noremap = true, silent = true})
 
-local perplexity = Terminal:new({
-    cmd = "w3m perplexity.ai",
-    hidden = true,
-    dir="%:p:h",
-})
-function _perplexity_toggle()
-    perplexity:toggle()
+--  天気予報
+local wttr = Terminal:new({cmd = "curl wttr.in"})
+function _wttr_toggle()
+    wttr:toggle()
 end
-vim.api.nvim_set_keymap("n", "<leader>pp", "<cmd>lua _perplexity_toggle()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>wttr", "<cmd>lua _wttr_toggle()<CR>", {noremap = true, silent = true})
 
 -- Suda.vim 用の キーマップ
 vim.keymap.set('n', '<Leader>sr', ':SudaRead<CR>')
 vim.keymap.set('n', '<Leader>sw', ':SudaWrite<CR>')
+
