@@ -9,9 +9,6 @@ return {
           vim.cmd([[colorscheme iceberg]])
         end,
         opts = {
-        },
-        dependencies = {
-            "lambdalisue/vim-seethrough", -- 透過プラグイン
         }
     },
 }

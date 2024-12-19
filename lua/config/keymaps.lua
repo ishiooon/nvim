@@ -1,4 +1,4 @@
-vim.g.mapleader = " "
+vim.g.mapleader = ";"
 
 -- neotree用のキーマップ
 --open/close
@@ -6,7 +6,7 @@ vim.keymap.set('n', '<C-e>', '<Cmd>Neotree reveal toggle<CR>')
 
 -- telescope用のキーマップ
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<space>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
+vim.keymap.set("n", "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
 -- ファイル検索
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 -- テキスト検索
@@ -89,3 +89,5 @@ vim.api.nvim_set_keymap("n", "<leader>wttr", "<cmd>lua _wttr_toggle()<CR>", {nor
 vim.keymap.set('n', '<Leader>sr', ':SudaRead<CR>')
 vim.keymap.set('n', '<Leader>sw', ':SudaWrite<CR>')
 
+-- 電卓を開く
+vim.keymap.set('n', '<Leader>calc', ':Dentaku<CR>')

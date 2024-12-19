@@ -66,5 +66,3 @@ vim.keymap.set('n', '<Leader>d', function() dapui.toggle() end, { desc = "Toggle
 vim.keymap.set('n', '<Leader>dl', function() dap.run_last() end, { desc = "Run Last Debug Session" })
 
 
--- theme.luaに"lambdalisue/vim-seethrough"(透過プラグイン)を入れたことで必要に
-require("notify").setup({ background_colour = "#000000" })
