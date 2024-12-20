@@ -30,11 +30,11 @@ git clone https://github.com/xdebug/vscode-php-debug.git
 ・xdebugの設定をvscodeと同様のjsonで行う
 ->同様の設定で問題ないかと思ったが${workspaceRoot}がうまく読めないため
 書き換えが必要に
-
     
 "configurations": [
     "name"...
     ...
+    "hostname": localhost,
     "notUsed_4_vscode_pathMappings": {
         "var/www/local.its....": "${workspaceRoot}"
     },
