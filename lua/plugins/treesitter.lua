@@ -1,4 +1,5 @@
 return {
+    {
 	"nvim-treesitter/nvim-treesitter",
 	build = ':TSUpdate',
 	opts = {
@@ -16,4 +17,10 @@ return {
 	config = function(_, opts)
 	  require('nvim-treesitter.configs').setup(opts)
 	end,
+    },
+    --Treesitterを使用して、引数の定義と使用法を非同期的に強調表示する
+    {
+        "m-demare/hlargs.nvim",
+        opts = {}
+    }
 }

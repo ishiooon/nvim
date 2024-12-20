@@ -1,7 +1,3 @@
-vim.g.mapleader = ";"
-
---vim.keymap.set('n', '*', ":...<CR>", { silent = true })
-
 -- neotree用のキーマップ
 --open/close
 vim.keymap.set('n', '<C-e>', '<Cmd>Neotree reveal toggle<CR>')
