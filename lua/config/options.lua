@@ -4,21 +4,6 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
-vim.opt.clipboard = "unnamedplus"
-vim.g.clipboard = {
-  name = "WslClipboard",
-  copy = {
-    ["+"] = "wl-copy",
-  },
-  paste = {
-    ["+"] = function()
-      return vim.fn.systemlist('wl-paste | tr -d "\r"')
-    end,
-    ["*"] = "wl-paste",
-  },
-  cache_enabled = 1,
-}
-
 vim.lsp.set_log_level("debug")
 
 -- ウィンドウの不透明度
