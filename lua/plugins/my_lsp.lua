@@ -1,6 +1,9 @@
 local lsp_servers = {
     "lua_ls",
     "Intelephense",
+    "eslint-lsp",
+    "php-debug-adapter",
+    "blade-formatter"
 }
 
 return{
