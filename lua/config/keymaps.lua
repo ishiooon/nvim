@@ -1,5 +1,7 @@
 vim.g.mapleader = ";"
 
+--vim.keymap.set('n', '*', ":...<CR>", { silent = true })
+
 -- neotree用のキーマップ
 --open/close
 vim.keymap.set('n', '<C-e>', '<Cmd>Neotree reveal toggle<CR>')
@@ -79,7 +81,7 @@ end
 vim.api.nvim_set_keymap("n", "<leader>ww", "<cmd>lua _w3m_toggle()<CR>", {noremap = true, silent = true})
 
 --  天気予報
-local wttr = Terminal:new({cmd = "curl wttr.in"})
+local wttr = Terminal:new({cmd = "curl wttr.in",hidden = true})
 function _wttr_toggle()
     wttr:toggle()
 end
