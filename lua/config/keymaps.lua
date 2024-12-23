@@ -45,7 +45,7 @@ vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>")
 vim.keymap.set('n', 'gr', '<cmd>Lspsaga lsp_finder<CR>')
 vim.keymap.set('n', 'gf', '<cmd>Lspsaga goto_definition<CR>')
 vim.keymap.set('n', 'gs',  "<Cmd>Lspsaga finder<CR>",  { desc = 'Telescope: live grep args', })
-
+vim.keymap.set('n', '<leader>ol', '<cmd>Lspsaga outline<CR>') -- lsp outline
 
 -- dap用のキーマップ
 -- options.luaに記述
