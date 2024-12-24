@@ -19,6 +19,17 @@ return{
 			automatic_installation = true,
 		},
 	},
+    -- nvim-cmp 自動補完
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            "hrsh7th/cmp-cmdline",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-nvim-lua",
+            "hrsh7th/cmp-path",
+        },
+        opts = {}
+    },
 	-- lspsaga
 	{
 	    	"nvimdev/lspsaga.nvim",

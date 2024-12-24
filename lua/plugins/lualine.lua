@@ -1,3 +1,12 @@
+local ns = vim.api.nvim_create_namespace('showcmd_msg')
+local showcmd_msg
+vim.ui_attach(ns, {ext_messages=true}, function(event, ...)
+  if event == 'msg_showcmd' then
+    local content = ...
+    showcmd_msg = #content > 0 and content[1][2] or ''
+  end
+end)
+
 return{
 	{
 		'nvim-lualine/lualine.nvim',
@@ -43,7 +52,7 @@ return{
                         end,
                       },
                 },
-			    lualine_x = {'encoding', 'fileformat', 'filetype'},
+			    lualine_x = {function() return showcmd_msg end, 'encoding', 'fileformat', 'filetype'},
 			    lualine_y = {'progress'},
                 -- 時計アイコンと時分を表示
                 lualine_z = {

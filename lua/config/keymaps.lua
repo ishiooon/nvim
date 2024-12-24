@@ -88,3 +88,5 @@ vim.keymap.set('n', '<Leader>sw', ':SudaWrite<CR>')
 
 -- 電卓を開く
 vim.keymap.set('n', '<Leader>calc', ':Dentaku<CR>')
+
+
