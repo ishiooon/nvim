@@ -3,7 +3,8 @@ local lsp_servers = {
     "Intelephense",
     "eslint-lsp",
     "php-debug-adapter",
-    "blade-formatter"
+    "blade-formatter",
+    "html-lsp"
 }
 
 return{

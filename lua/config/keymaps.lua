@@ -1,6 +1,7 @@
 -- neotree用のキーマップ
 --open/close
 vim.keymap.set('n', '<C-e>', '<Cmd>Neotree reveal toggle<CR>')
+vim.keymap.set('n', '<leader>nt', '<Cmd>Neotree reveal toggle<CR>')
 
 -- telescope用のキーマップ
 local builtin = require("telescope.builtin")
@@ -83,10 +84,8 @@ end
 vim.api.nvim_set_keymap("n", "<leader>wttr", "<cmd>lua _wttr_toggle()<CR>", {noremap = true, silent = true})
 
 -- Suda.vim 用の キーマップ
-vim.keymap.set('n', '<Leader>sr', ':SudaRead<CR>')
 vim.keymap.set('n', '<Leader>sw', ':SudaWrite<CR>')
+vim.keymap.set('n', '<Leader>sr', ':SudaRead<CR>')
 
 -- 電卓を開く
 vim.keymap.set('n', '<Leader>calc', ':Dentaku<CR>')
-
-

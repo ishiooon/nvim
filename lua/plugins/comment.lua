@@ -1,5 +1,7 @@
 return{
-    { 'numToStr/Comment.nvim',
+    {
+        -- コメントを簡単にする
+        'numToStr/Comment.nvim',
         opts = {}
     }
 }
