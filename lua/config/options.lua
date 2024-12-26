@@ -4,6 +4,18 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+-- 背景の透過
+vim.cmd([[
+  highlight Normal guibg=none
+  highlight NonText guibg=none
+  highlight Normal ctermbg=none
+  highlight NonText ctermbg=none
+]])
+require('notify').setup({
+    background_colour = '#000000',
+})
+
+-- クリップボードの設定
 vim.g.clipboard = {
   name = 'OSC 52',
   copy = {

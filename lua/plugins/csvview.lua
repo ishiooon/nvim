@@ -1,6 +1,8 @@
 return{
     {
         'hat0uma/csvview.nvim',
-        opts = {}
+        opts = {
+            display_mode = "border"
+        }
     }
 }

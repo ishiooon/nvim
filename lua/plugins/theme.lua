@@ -9,7 +9,11 @@ return {
           vim.cmd([[colorscheme iceberg]])
         end,
         opts = {
+            -- 透過 
         }
     },
+    { "EdenEast/nightfox.nvim" },
+    { "rebelot/kanagawa.nvim" }
 }
+
 
