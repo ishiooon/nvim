@@ -1,5 +1,6 @@
 -- neotree用のキーマップ
 --open/close
+--
 vim.keymap.set('n', '<C-e>', '<Cmd>Neotree reveal toggle<CR>')
 vim.keymap.set('n', '<leader>nt', '<Cmd>Neotree reveal toggle<CR>')
 

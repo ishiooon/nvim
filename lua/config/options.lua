@@ -1,19 +1,21 @@
+-- 行番号を表示
 vim.opt.number = true
+
 -- タブとインデントの設定
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 -- 背景の透過
-vim.cmd([[
-  highlight Normal guibg=none
-  highlight NonText guibg=none
-  highlight Normal ctermbg=none
-  highlight NonText ctermbg=none
-]])
-require('notify').setup({
-    background_colour = '#000000',
-})
+-- vim.cmd([[
+--   highlight Normal guibg=none
+--   highlight NonText guibg=none
+--   highlight Normal ctermbg=none
+--   highlight NonText ctermbg=none
+-- ]])
+-- require('notify').setup({
+--     background_colour = '#000000',
+-- })
 
 -- クリップボードの設定
 vim.g.clipboard = {
@@ -115,7 +117,7 @@ vim.keymap.set('n', '<F12>', function() dap.step_out() end, { desc = "Step Out" 
 
 -- デバッグUI
 local dapui = require('dapui')
-vim.keymap.set('n', '<Leader>d', function() dapui.toggle() end, { desc = "Toggle Debug UI" })
+vim.keymap.set('n', '<Leader>du', function() dapui.toggle() end, { desc = "Toggle Debug UI" })
 -- vim.keymap.set('n', '<Leader>dr', function() dap.repl.open() end, { desc = "Open Debug REPL" })
 
 -- 最後のデバッグセッションを再実行
