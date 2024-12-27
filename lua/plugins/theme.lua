@@ -13,7 +13,8 @@ return {
         }
     },
     { "EdenEast/nightfox.nvim" },
-    { "rebelot/kanagawa.nvim" }
+    { "rebelot/kanagawa.nvim" },
+    {"kihachi2000/yash.nvim"},
 }
 
 

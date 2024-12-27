@@ -1,8 +1,9 @@
--- neotree用のキーマップ
---open/close
---
+-- Ctrl+w ： バッファを閉じる 
+vim.keymap.set('n', '<C-w>', '<Cmd>BufferClose<CR>')
+
+-- neoetree用のキーマップ
 vim.keymap.set('n', '<C-e>', '<Cmd>Neotree reveal toggle<CR>')
-vim.keymap.set('n', '<leader>nt', '<Cmd>Neotree reveal toggle<CR>')
+vim.keymap.set('n', '<leader>e', '<Cmd>Neotree reveal toggle<CR>', { desc = 'Neotree: トグル', })
 
 -- telescope用のキーマップ
 local builtin = require("telescope.builtin")
@@ -12,7 +13,8 @@ vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 -- テキスト検索
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 -- freequency検索
-vim.keymap.set("n", "<leader>fe", ':Telescope frecency<CR>', {})
+vim.keymap.set("n", "<leader>fe", ':Telescope frecency workspace=CWD<CR>', {})
+vim.keymap.set("n", "<C-p>", ':Telescope frecency workspace=CWD<CR>', {})
 
 -- hop用のキーマップ
 -- place this in one of your configuration file(s)
@@ -63,7 +65,7 @@ local lazygit = Terminal:new({
 })
 
 function _lazygit_toggle()
-  lazygit:toggle()
+    lazygit:toggle()
 end
 vim.api.nvim_set_keymap("n", "<leader>lg", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
 

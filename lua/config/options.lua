@@ -16,6 +16,9 @@ vim.opt.expandtab = true
 -- require('notify').setup({
 --     background_colour = '#000000',
 -- })
+--
+-- 対応する括弧をハイライト
+-- vim.api.nvim_set_hl(0, "MatchParen", { fg = "#121212", bg="#99EEEE" })
 
 -- クリップボードの設定
 vim.g.clipboard = {
