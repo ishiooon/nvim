@@ -1,6 +1,3 @@
--- Ctrl+w ： バッファを閉じる 
-vim.keymap.set('n', '<C-w>', '<Cmd>BufferClose<CR>')
-
 -- neoetree用のキーマップ
 vim.keymap.set('n', '<C-e>', '<Cmd>Neotree reveal toggle<CR>')
 vim.keymap.set('n', '<leader>e', '<Cmd>Neotree reveal toggle<CR>', { desc = 'Neotree: トグル', })

@@ -1,3 +1,6 @@
+-- starting color schime (default: gruvbox-material)
+vim.cmd([[colorscheme gruvbox-material]])
+
 -- 行番号を表示
 vim.opt.number = true
 
