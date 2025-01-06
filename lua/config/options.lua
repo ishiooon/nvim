@@ -1,4 +1,4 @@
--- starting color schime (default: gruvbox-material)
+-- 初期カラースキームを設定
 vim.cmd([[colorscheme gruvbox-material]])
 
 -- 行番号を表示
@@ -83,6 +83,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "luasnip" },
+    { name = "render-markdown" }
   }, {
     { name = "buffer" },
   })
