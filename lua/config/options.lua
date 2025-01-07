@@ -54,6 +54,18 @@ mason_lspconfig.setup_handlers({
     function(server_name)
         lspconfig[server_name].setup({})
     end,
+    -- laravelの「Route」で「undefinedTypes」エラーが出るため Intelephenseのdiagnostics.undefinedTypesをfalseにする
+    ["intelephense"] = function()
+        lspconfig.intelephense.setup({
+            settings = {
+                intelephense = {
+                    diagnostics = {
+                        undefinedTypes = false,
+                    }
+                }
+            }
+        })
+    end
 })
 
 
