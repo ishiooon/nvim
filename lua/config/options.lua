@@ -68,7 +68,6 @@ mason_lspconfig.setup_handlers({
     end
 })
 
-
 -- lsp自動補完設定
 -- lspのハンドラーに設定
 capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -135,6 +134,7 @@ vim.keymap.set('n', '<F11>', function() dap.step_into() end, { desc = "Step Into
 vim.keymap.set('n', '<F12>', function() dap.step_out() end, { desc = "Step Out" })
 
 -- デバッグUI
+---@diagnostic disable-next-line: redefined-local
 local dapui = require('dapui')
 vim.keymap.set('n', '<Leader>du', function() dapui.toggle() end, { desc = "Toggle Debug UI" })
 -- vim.keymap.set('n', '<Leader>dr', function() dap.repl.open() end, { desc = "Open Debug REPL" })
@@ -143,3 +143,19 @@ vim.keymap.set('n', '<Leader>du', function() dapui.toggle() end, { desc = "Toggl
 vim.keymap.set('n', '<Leader>dl', function() dap.run_last() end, { desc = "Run Last Debug Session" })
 
 
+
+-- tree-sitterの設定(4blade)
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.blade = {
+  install_info = {
+    url = "https://github.com/EmranMR/tree-sitter-blade",
+    files = {"src/parser.c"},
+    branch = "main",
+  },
+  filetype = "blade"
+}
+vim.filetype.add({
+  pattern = {
+    ['.*%.blade%.php'] = 'blade',
+  },
+})

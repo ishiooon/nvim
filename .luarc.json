@@ -11,6 +11,7 @@
     // "hint.enable": false
   },
     "diagnostics.disable": [
-        "redundant-value"
+        "redundant-value",
+        "unused-local"
     ]
 }
