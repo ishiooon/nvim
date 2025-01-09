@@ -2,6 +2,9 @@
 vim.keymap.set('n', '<C-e>', '<Cmd>Neotree reveal toggle<CR>')
 vim.keymap.set('n', '<leader>e', '<Cmd>Neotree reveal toggle<CR>', { desc = 'Neotree: トグル', })
 
+-- spectre用のキーマップ
+vim.keymap.set('n', '<C-f>', '<Cmd>lua require("spectre").toggle()<CR>')
+
 -- telescope用のキーマップ
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
@@ -36,6 +39,7 @@ vim.keymap.set('n', '<leader>j', '<Cmd>BufferPrevious<CR>', opts)--Ctrl+jで前�
 vim.keymap.set('n', '<leader>k', '<Cmd>BufferNext<CR>', opts)--Ctrl+kで次のBufferに移動
 vim.keymap.set('n', '<leader>p',   '<Cmd>BufferPick<CR>', opts)
 vim.keymap.set('n', '<leader>to', '<Cmd>BufferOrderByName<CR>', opts)
+vim.keymap.set('n', '<leader>q', '<Cmd>BufferClose<CR>', opts)
 
 -- lsp用のキーマップ
 -- ホバー
