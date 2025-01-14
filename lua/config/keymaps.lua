@@ -4,6 +4,13 @@ vim.keymap.set('n', '<leader>e', '<Cmd>Neotree reveal toggle<CR>', { desc = 'Neo
 
 -- spectre用のキーマップ
 vim.keymap.set('n', '<C-f>', '<Cmd>lua require("spectre").toggle()<CR>')
+vim.keymap.set('v', '<C-f>', '<Cmd>lua require("spectre").open_visual{select_word=true}<CR>')
+vim.keymap.set('n', '<C-s>', '<cmd>lua require("spectre").open_file_search()<CR>')
+vim.keymap.set('v', '<C-s>', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>')
+
+
+-- avante用のキーマップ
+vim.keymap.set('n', '<C-a>', '<Cmd>AvanteToggle<CR>')
 
 -- telescope用のキーマップ
 local builtin = require("telescope.builtin")
