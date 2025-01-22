@@ -9,20 +9,6 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
--- 背景の透過
--- vim.cmd([[
---   highlight Normal guibg=none
---   highlight NonText guibg=none
---   highlight Normal ctermbg=none
---   highlight NonText ctermbg=none
--- ]])
--- require('notify').setup({
---     background_colour = '#000000',
--- })
---
--- 対応する括弧をハイライト
--- vim.api.nvim_set_hl(0, "MatchParen", { fg = "#121212", bg="#99EEEE" })
-
 -- クリップボードの設定
 vim.g.clipboard = {
   name = 'OSC 52',
@@ -38,10 +24,10 @@ vim.g.clipboard = {
 
 vim.lsp.set_log_level("debug")
 
--- ウィンドウの不透明度
-vim.opt.termguicolors = true
-vim.opt.winblend = 0 -- ウィンドウの不透明度
-vim.opt.pumblend = 0 -- ポップアップメニューの不透明度
+-- -- ウィンドウの不透明度
+-- vim.opt.termguicolors = true
+-- vim.opt.winblend = 0 -- ウィンドウの不透明度
+-- vim.opt.pumblend = 0 -- ポップアップメニューの不透明度
 
 -- lsp設定
 local mason = require('mason')
@@ -74,6 +60,11 @@ capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- lspの設定後に追加
 vim.opt.completeopt = "menu,menuone,noselect"
+
+-- lsp_linesを使用するためデフォルトのvirtual_textを無効にする
+vim.diagnostic.config({
+  virtual_text = false,
+})
 
 local cmp = require"cmp"
 cmp.setup({
@@ -159,3 +150,8 @@ vim.filetype.add({
     ['.*%.blade%.php'] = 'blade',
   },
 })
+
+-- neotreeの透過
+require('transparent').clear_prefix('NeoTree')
+-- lualineの透過
+-- require('transparent').clear_prefix('lualine')

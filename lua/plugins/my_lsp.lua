@@ -56,7 +56,7 @@ return{
                 methods = {
                     tyd = 'textDocument/typeDefinition',
                 }
-            }
+            },
         },
 	   	dependencies = {
 			"nvim-treesitter/nvim-treesitter",
@@ -64,6 +64,11 @@ return{
         },
 	    event = { "BufRead", "BufNewFile" },
 	},
+    -- lsplines
+    {
+      "ErichDonGubler/lsp_lines.nvim",
+        opts = {}
+    }
 }
 
 
