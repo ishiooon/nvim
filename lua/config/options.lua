@@ -5,9 +5,9 @@ vim.cmd([[colorscheme gruvbox-material]])
 -- ストローク表示をオン
 vim.cmd([[ShowkeysToggle]])
 --========================================================
---
 -- 行番号を表示
 vim.opt.number = true
+vim.opt.relativenumber = true
 
 -- タブとインデントの設定
 vim.opt.tabstop = 4
@@ -171,5 +171,5 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 -- mini.nvimの設定
--- require('mini.animate').setup() -- アニメーションの設定
+require('mini.animate').setup() -- アニメーションの設定
 require('mini.cursorword').setup()  -- カーソルの単語をハイライト
