@@ -8,6 +8,8 @@ vim.keymap.set('v', '<C-f>', '<Cmd>lua require("spectre").open_visual{select_wor
 vim.keymap.set('n', '<C-s>', '<cmd>lua require("spectre").open_file_search()<CR>')
 vim.keymap.set('v', '<C-s>', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>')
 
+-- treesj用のキーマップ
+vim.keymap.set('n', '<leader>m', require('treesj').toggle, { desc = 'Treesj: トグル' })
 
 -- avante用のキーマップ
 vim.keymap.set('n', '<C-a>', '<Cmd>AvanteToggle<CR>')
@@ -100,20 +102,6 @@ vim.api.nvim_set_keymap("n", "<leader>wttr", "<cmd>lua _wttr_toggle()<CR>", {nor
 vim.keymap.set('n', '<Leader>sw', ':SudaWrite<CR>')
 vim.keymap.set('n', '<Leader>sr', ':SudaRead<CR>')
 
--- menu.lua
--- mouse users + nvimtree users!
--- vim.keymap.set({ "n", "v" }, "<RightMouse>", function()
---   require('menu.utils').delete_old_menus()
---
---   vim.cmd.exec '"normal! \\<RightMouse>"'
---
---   -- clicked buf
---   local buf = vim.api.nvim_win_get_buf(vim.fn.getmousepos().winid)
---   local options = vim.bo[buf].ft == "NeoTree" and "neotree" or "default"
---
---   require("menu").open(options, { mouse = true })
--- end, {})
---
 require("CopilotChat").setup({
     show_help = "yes",
     prompts = {
@@ -171,13 +159,3 @@ require("CopilotChat").setup({
         },
     },
 })
-
---harpoon 用のキーマップ
-local harpoon = require("harpoon")
-
--- REQUIRED
-harpoon:setup()
--- REQUIRED
-
-vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
-vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)

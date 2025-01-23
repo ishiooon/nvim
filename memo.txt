@@ -46,9 +46,10 @@ git clone https://github.com/xdebug/vscode-php-debug.git
 
 〇xdebug.iniについて
 ・「xdebug.client_host=」についてはdocker内から見るかリモートで見るかで値を変更する
-    --リモート
+    --リモートから見る場合
     RUN for v in 72 73 74 80 81 82 83; do echo 'xdebug.client_host=host.docker.internal' >> /etc/opt/remi/php$v/php.d/15-xdebug.ini ; done
-    --docker内
+
+    --docker内から見る場合
     #xdebug.client_host=host.docker.internal
     xdebug.client_host=localhost
     xdebug.discover_client_host=true

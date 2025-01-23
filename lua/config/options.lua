@@ -170,4 +170,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
    end,
 })
 
-
+-- mini.nvimの設定
+-- require('mini.animate').setup() -- アニメーションの設定
+require('mini.cursorword').setup()  -- カーソルの単語をハイライト
