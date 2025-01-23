@@ -7,7 +7,12 @@ return {
     { "sainnhe/gruvbox-material" },
     { "sainnhe/everforest" },
     -- 透過プラグイン
-    { "xiyaowong/nvim-transparent" },
+    {
+        "xiyaowong/nvim-transparent",
+        opts = {
+            enable = true,
+        },
+    },
 }
 
 
