@@ -51,6 +51,7 @@ vim.keymap.set('n', '<leader>k', '<Cmd>BufferNext<CR>', opts)--Ctrl+kで次のBu
 vim.keymap.set('n', '<leader>p',   '<Cmd>BufferPick<CR>', opts)
 vim.keymap.set('n', '<leader>to', '<Cmd>BufferOrderByName<CR>', opts)
 vim.keymap.set('n', '<leader>q', '<Cmd>BufferClose<CR>', opts)
+vim.keymap.set('n', '<leader>tq', '<C-w>o<Cmd>BufferCloseAllButCurrent<CR>', opts)
 
 -- lsp用のキーマップ
 -- ホバー
@@ -160,3 +161,5 @@ require("CopilotChat").setup({
     },
 })
 
+-- hardtimeのトグル
+vim.keymap.set('n', '<leader>ht', '<Cmd>Hardtime toggle<CR>')
