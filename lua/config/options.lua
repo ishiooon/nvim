@@ -13,6 +13,18 @@ vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+local filetype_tabstop = {typescript=2, typescriptreact=2} -- filetype毎のインデント幅
+local usrftcfg = vim.api.nvim_create_augroup("UserFileTypeConfig", { clear = true})
+vim.api.nvim_create_autocmd("FileType", {
+  group = usrftcfg,
+  callback = function (args)
+    local ftts = filetype_tabstop[args.match]
+    if ftts then
+      vim.bo.tabstop = ftts
+      vim.bo.shiftwidth = ftts
+    end
+  end
+})
 
 -- クリップボードの設定
 vim.g.clipboard = {
