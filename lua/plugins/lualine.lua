@@ -6,7 +6,6 @@ return {
             'arkav/lualine-lsp-progress',
         },
         opts = {
-
             options = {
                 icons_enabled = true,
                 theme = 'auto',
@@ -28,21 +27,27 @@ return {
 			sections = {
 			    lualine_a = {'mode'},
 			    lualine_b = {'branch', 'diff', 'diagnostics'},
-                lualine_c = {'filename',
-                    {
-                        function()
-                            return require("dap").status()
-                        end,
-                        icon = { "", color = { fg = "#e7c664" } }, -- nerd icon.
-                        cond = function()
-                          if not package.loaded.dap then
-                            return false
-                          end
-                          local session = require("dap").session()
-                          return session ~= nil
-                        end,
-                    }
-                },
+          lualine_c = {
+            'filename',
+            {
+                function()
+                    return require("dap").status()
+                end,
+                icon = { "", color = { fg = "#e7c664" } }, -- nerd icon.
+                cond = function()
+                  if not package.loaded.dap then
+                    return false
+                  end
+                  local session = require("dap").session()
+                  return session ~= nil
+                end,
+            },
+            {
+              function()
+                return require("pomodoro").get_pomodoro_status("⏱❌","⏱","🛏")
+              end,
+            }
+          },
 			    lualine_x = {'encoding', 'fileformat', 'filetype'},
 			    lualine_y = {'progress'},
                 -- 時計アイコンと時分を表示

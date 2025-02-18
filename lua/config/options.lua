@@ -14,19 +14,33 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true -- タブをスペースに変換
 
-local filetype_tabstop = {php = 4} -- filetype毎のインデント幅
-local usrftcfg = vim.api.nvim_create_augroup("UserFileTypeConfig", { clear = true})
-vim.api.nvim_create_autocmd("FileType", {
-  group = usrftcfg,
-  callback = function (args)
-    local ftts = filetype_tabstop[args.match]
-    if ftts then
-      vim.opt.tabstop = ftts
-      vim.opt.shiftwidth = ftts
-    end
-  end
-})
+-- local filetype_tabstop = {php = 4} -- filetype毎のインデント幅
+-- local usrftcfg = vim.api.nvim_create_augroup("UserFileTypeConfig", { clear = true})
+-- vim.api.nvim_create_autocmd("FileType", {
+--   group = usrftcfg,
+--   callback = function (args)
+--     local ftts = filetype_tabstop[args.match]
+--     if ftts then
+--       vim.opt.tabstop = ftts
+--       vim.opt.shiftwidth = ftts
+--     end
+--   end
+-- })
 
+if vim.fn.has("wsl") then
+  vim.g.clipboard = {
+    name = "win32yank-wsl",
+    copy = {
+      ["+"] = "win32yank.exe -i --crlf",
+      ["*"] = "win32yank.exe -i --crlf"
+    },
+    paste = {
+      ["+"] = "win32yank.exe -o --crlf",
+      ["*"] = "win32yank.exe -o --crlf"
+    },
+    cache_enable = 0,
+  }
+end
 -- クリップボードの設定
 vim.g.clipboard = {
   name = 'OSC 52',

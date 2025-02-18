@@ -28,6 +28,8 @@ vim.keymap.set("n", "<C-p>", ':Telescope frecency workspace=CWD<CR>', {})
 vim.keymap.set("n", "<leader>fr", builtin.registers, {})
 -- バッファ
 vim.keymap.set("n", "<C-b>", builtin.buffers, {})
+-- TODO
+vim.keymap.set("n", "<leader>ft", ':TodoTelescope<CR>', {})
 
 -- hop用のキーマップ
 -- place this in one of your configuration file(s)

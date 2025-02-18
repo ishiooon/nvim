@@ -6,11 +6,9 @@ return {
     version = false,
     opts = {
         provider = "copilot",
-        -- provider = "claude",
-        -- provider = "openai",
         auto_suggestions_provider = "copilot",
         behaviour = {
-            auto_suggestions = true,
+            auto_suggestions = false,
             auto_set_highlight_group = true,
             auto_set_keymaps = true,
             auto_apply_diff_after_generation = true,
@@ -34,17 +32,6 @@ return {
             model = "claude-3.5-sonnet",
             -- model = "gpt-4o",
             -- model = "gpt-4o-mini",
-            max_tokens = 4096,
-        },
-        claude = {
-            model = "claude-3-5-sonnet-20240620", -- $3/$15, maxtokens=8000
-            -- model = "claude-3-opus-20240229",  -- $15/$75
-            -- model = "claude-3-haiku-20240307", -- $0.25/1.25
-            max_tokens = 8000,
-        },
-        openai = {
-            model = "gpt-4o", -- $2.5/$10
-            -- model = "gpt-4o-mini", -- $0.15/$0.60
             max_tokens = 4096,
         },
     },
