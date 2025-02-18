@@ -11,9 +11,6 @@ vim.keymap.set('v', '<C-s>', '<cmd>lua require("spectre").open_file_search({sele
 -- treesj用のキーマップ
 vim.keymap.set('n', '<leader>m', require('treesj').toggle, { desc = 'Treesj: トグル' })
 
--- avante用のキーマップ
-vim.keymap.set('n', '<C-a>', '<Cmd>AvanteToggle<CR>')
-
 -- telescope用のキーマップ
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
@@ -167,3 +164,81 @@ require("CopilotChat").setup({
 
 -- hardtimeのトグル
 vim.keymap.set('n', '<leader>ht', '<Cmd>Hardtime toggle<CR>')
+-- avante用のキーマップ
+-- prefil edit window with common scenarios to avoid repeating query and submit immediately
+local prefill_edit_window = function(request)
+    require("avante.api").edit()
+    local code_bufnr = vim.api.nvim_get_current_buf()
+    local code_winid = vim.api.nvim_get_current_win()
+    if code_bufnr == nil or code_winid == nil then
+        return
+    end
+    vim.api.nvim_buf_set_lines(code_bufnr, 0, -1, false, { request })
+    -- Optionally set the cursor position to the end of the input
+    vim.api.nvim_win_set_cursor(code_winid, { 1, #request + 1 })
+    -- Simulate Ctrl+S keypress to submit
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-s>", true, true, true), "v", true)
+end
+
+-- NOTE: most templates are inspired from ChatGPT.nvim -> chatgpt-actions.json
+local avante_code_readability_analysis = [[
+  以下の点を考慮しコードの可読性の問題を特定してください。
+  考慮すべき可読性の問題:
+  - 不明瞭な命名
+  - 不明瞭な目的
+  - 冗長なコメント
+  - コメントの欠如
+  - 長いまたは複雑な一行のコード
+  - ネストが多すぎる
+  - 長すぎる変数名
+  - 命名とコードスタイルの不一致
+  - コードの繰り返し
+  上記以外の問題を特定しても構いません。
+]]
+local avante_optimize_code = "次のコードを最適化してください。"
+local avante_fix_bugs = "次のコード内のバグを修正してください。"
+local avante_add_tests = "次のコードのテストを実装してください。"
+local avante_add_docstring = "次のコードにdocstringを追加してください。"
+
+-- avante.nvim
+local avante_ask = require("avante.api").ask
+
+vim.keymap.set("n", "<leader>al", function()
+    avante_ask({ question = avante_code_readability_analysis })
+end, { noremap = true, silent = true, desc = "[avante]可読性" })
+
+vim.keymap.set("n", "<leader>aL", function()
+    prefill_edit_window(avante_code_readability_analysis)
+end, { noremap = true, silent = true, desc = "[avante]可読性(Edit)" })
+
+vim.keymap.set("n", "<leader>ao", function()
+    avante_ask({ question = avante_optimize_code })
+end, { noremap = true, silent = true, desc = "[avante]最適化" })
+
+vim.keymap.set("n", "<leader>aO", function()
+    prefill_edit_window(avante_optimize_code)
+end, { noremap = true, silent = true, desc = "[avante]最適化(Edit)" })
+
+vim.keymap.set("n", "<leader>ab", function()
+    avante_ask({ question = avante_fix_bugs })
+end, { noremap = true, silent = true, desc = "[avante]バグ修正" })
+
+vim.keymap.set("n", "<leader>aB", function()
+    prefill_edit_window(avante_fix_bugs)
+end, { noremap = true, silent = true, desc = "[avante]バグ修正(Edit)" })
+
+vim.keymap.set("n", "<leader>au", function()
+    avante_ask({ question = avante_add_tests })
+end, { noremap = true, silent = true, desc = "[avante]テスト実装" })
+
+vim.keymap.set("n", "<leader>aU", function()
+    prefill_edit_window(avante_add_tests)
+end, { noremap = true, silent = true, desc = "[avante]テスト実装(Edit)" })
+
+vim.keymap.set("n", "<leader>ad", function()
+    avante_ask({ question = avante_add_docstring })
+end, { noremap = true, silent = true, desc = "[avante]docstring" })
+
+vim.keymap.set("n", "<leader>aD", function()
+    prefill_edit_window(avante_add_docstring)
+end, { noremap = true, silent = true, desc = "[avante]docstring(Edit)" })
