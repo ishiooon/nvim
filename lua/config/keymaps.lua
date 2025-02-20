@@ -164,6 +164,7 @@ require("CopilotChat").setup({
 
 -- hardtimeのトグル
 vim.keymap.set('n', '<leader>ht', '<Cmd>Hardtime toggle<CR>')
+
 -- avante用のキーマップ
 -- prefil edit window with common scenarios to avoid repeating query and submit immediately
 local prefill_edit_window = function(request)

@@ -29,7 +29,7 @@ return {
         },
         -- providers-setting
         copilot = {
-            model = "claude-3.5-sonnet",
+            -- model = "claude-3.5-sonnet",
             -- model = "gpt-4o",
             -- model = "gpt-4o-mini",
             max_tokens = 4096,

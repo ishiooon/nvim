@@ -14,6 +14,9 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true -- タブをスペースに変換
 
+-- vimdoc-ja.luaの設定
+vim.opt.helplang = 'ja' -- ヘルプの言語を日本語に設定
+
 -- local filetype_tabstop = {php = 4} -- filetype毎のインデント幅
 -- local usrftcfg = vim.api.nvim_create_augroup("UserFileTypeConfig", { clear = true})
 -- vim.api.nvim_create_autocmd("FileType", {
