@@ -9,6 +9,8 @@ vim.cmd([[ShowkeysToggle]])
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+vim.opt.ignorecase = true -- 検索時に大文字小文字を区別しない
+
 -- タブとインデントの設定
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
@@ -16,6 +18,10 @@ vim.opt.expandtab = true -- タブをスペースに変換
 
 -- vimdoc-ja.luaの設定
 vim.opt.helplang = 'ja' -- ヘルプの言語を日本語に設定
+
+-- memolist.luaのファイル保存先
+vim.g.memolist_path = '~/.config/memolist'
+vim.g.memo_dir = '~/.config/memolist'
 
 -- local filetype_tabstop = {php = 4} -- filetype毎のインデント幅
 -- local usrftcfg = vim.api.nvim_create_augroup("UserFileTypeConfig", { clear = true})
@@ -203,3 +209,14 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 -- mini.nvimの設定
 require('mini.animate').setup() -- アニメーションの設定
 require('mini.cursorword').setup()  -- カーソルの単語をハイライト
+
+-- telescopeの設定
+require("telescope").setup({
+  defaults = {
+    path_display = {
+      filename_first = {
+        reverse_directories = false,
+      },
+    },
+  },
+})
